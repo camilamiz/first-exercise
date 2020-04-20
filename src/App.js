@@ -1,27 +1,17 @@
 import React, {Component} from 'react';
 import './App.css';
-import Input from './User/Input';
-import Output from './User/Output';
+import Input from './UserInput/UserInput';
+import Output from './UserOutput/UserOutput';
 
 
 class App extends Component {
   state = {
-    username: 'Dona Valéria'
-  }
-
-  new_state = {
-    newUsername: "null"
-  }
-
-  handleSubmit = (newUsername) => {
-    this.setState( {
-      newUserName: newUsername
-    } )
+    newUsername: 'Finn, the human'
   }
 
   handleIputChange = (event) => {
     this.setState( {
-      username: event.target.value
+      newUsername: event.target.value
     } )
   }
 
@@ -30,16 +20,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
-        <p>Username: {username}</p>
         <Input
           changed={this.handleIputChange}
-          username={this.state.user}>
-        </Input>
-        <button onClick={() => this.handleSubmit(username)}>Save username
-        </button>
-        <Output
-          newUserName={this.state.newUserName}>
-        </Output>
+          username={this.state.newUsername} />
+        <Output username={this.state.newUsername} />
+        <Output username={this.state.newUsername} />
+        <Output username='Jake ,the dog' />
       </div>
     )
   }
